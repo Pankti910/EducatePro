@@ -1,0 +1,125 @@
+<main-headerbar></main-headerbar>
+<mat-divider></mat-divider>
+
+<div style="display: flex;width:100%">
+
+<div style="width:15%;margin-top:50px;">
+  <h4><b><mat-toolbar-row> Enrolled In</mat-toolbar-row> </b></h4> 
+   <span *ngFor='let data of classList.joinedClasses'>
+     <mat-toolbar-row class="mat-toolbar-row-link">
+    <a  [routerLink]="['/exam',data._id]">{{data.classname}}
+           
+
+    </a>
+  </mat-toolbar-row>
+ 
+   </span>
+</div>
+<div style="width:85%;float: right;">
+<div style="float:right;width: 100%;">  
+<main>
+
+    
+    <mat-tab-group mat-align-tabs="center" style="margin-bottom:2vh;" [selectedIndex]="2" (selectedTabChange)="tabClick($event)">
+        
+        <mat-tab label="Post">
+        </mat-tab> 
+        <mat-tab label="Assignment">
+          
+        </mat-tab>
+        <mat-tab label="Exam">
+            
+            <mat-toolbar class="center" style="height:100px;background-color: blue;color: white;font-weight: bold;font-size:25px;">
+                {{classData.classname}}
+            </mat-toolbar>
+            <div *ngIf="classData.status!=='Block'" style="float: right;width:80%;margin-top:20px">
+              
+
+                
+            
+
+                <div style="width:100%" >
+                    <div >
+                      <div style="display: flex;">
+                          
+                        </div>
+                        <mat-divider></mat-divider>
+                    </div>
+                </div>
+                 <table  style="width: 100%;" *ngIf="message.message=='Student'">
+                    <tr>
+                        <th>Exam</th>
+                        <th>Marks</th>
+                    </tr>
+                     <tr *ngFor="let t of examList.exams">
+                       <td><a [routerLink]="['/exam-submit',t._id]">{{t.exam}}
+                       </a></td>
+                       <td>{{t.totalMarks}}</td>
+                     </tr>
+                 </table>
+            
+               
+                 <table style="width: 100%;" *ngIf="message.message=='Teacher'">
+                    <tr>
+                        <th>Exam</th>
+                        <th>Total Marks</th>
+                    </tr>
+                     <tr *ngFor="let t of examList.exams">
+                       <td><a [routerLink]="['/exam-data',t._id,id]">{{t.exam}}
+                       </a></td>
+                       <td>{{t.totalMarks}}</td>
+
+                     </tr>
+                 </table>
+
+              </div>
+            <div *ngIf="message.message=='Teacher'" class="header" style="margin-top: 20px!important;float: left;width:20%;">
+                <div style="width: fit-content;float: left;">
+                   <mat-card style="width: fit-content;float: left;">
+                    Class Code:{{classData.classcode}}
+                 
+                  <a  [cdkCopyToClipboard]="value"><mat-icon>content_copy</mat-icon>
+                  </a>
+                   </mat-card>
+                   
+               </div> 
+            </div>
+            
+            <div  style="margin-top:20vh!important;">
+                <div style="float: left;">
+                    <mat-card style="width: fit-content;float: left;">
+                  
+                   <a  href={{meetLink}} target="_blank" rel="noopener noreferrer">Join Meeting
+                   </a>
+                    </mat-card>
+                    
+                </div>
+            </div>
+            <br>
+            <div  style="margin-top:10vh!important;">
+                <div style="float: left;">
+                    <mat-card style="width: fit-content;float: left;">
+                        <div *ngIf="message.message=='Teacher'">
+                            <button mat-raised-button color="primary" (click)="examAdd()">New Exam</button>
+                        </div>
+                    </mat-card>
+                    
+                </div>
+            </div>
+            
+        </mat-tab>
+        <mat-tab label="People">
+
+      </mat-tab>
+      
+    </mat-tab-group>
+        
+
+        
+     
+</main>
+
+
+</div>
+</div>
+</div>

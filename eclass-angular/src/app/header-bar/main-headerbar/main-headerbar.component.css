@@ -1,0 +1,46 @@
+::ng-deep .main-headerbar{
+    width: 100%;
+    height: 6vh;
+    background-color:none;
+}
+::ng-deep button{
+    background-color: transparent;
+    border: none;
+}
+
+::ng-deep .mat-drawer-backdrop.mat-drawer-shown{
+    background-color:transparent;
+}
+::ng-deep .modal{
+    height: 100%;
+    filter:alpha(opacity=70);
+    background-color: grey;
+}
+
+::ng-deep .modal-dialog{
+    opacity: 1;
+   
+    display: block;
+}
+
+::ng-deep .mat-drawer-content{
+    display: inline!important;
+}
+
+mat-sidenav-container, mat-sidenav-content, mat-sidenav {
+    height: 100%;
+}
+
+mat-sidenav {
+    width: 250px;
+}
+
+main {
+    padding: 10px;
+}
+
+/* for sidenav to take a whole page */
+html, body { 
+    margin: 0;
+    height: 100%;
+}

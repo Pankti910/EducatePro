@@ -1,0 +1,149 @@
+<div class="main-headerbar">
+
+<span style="float: left;font-weight: bold;font-size:30px;">
+<b style="color: brown!important;">E</b><b style="color: darkcyan !important;">du</b>
+<b style="color: darkgoldenrod;">ca</b>
+<b style="color:darkmagenta;">te</b> Pro
+</span>
+
+<span style="float: right;margin-top: 1vh;">
+<button [matMenuTriggerFor]="menu" class="b1"><mat-icon>settings</mat-icon></button>
+<mat-menu #menu="matMenu" >
+    <button *ngIf="role!='Admin'" class="b2"  (click)="openPopup()" mat-menu-item>Create Class</button>
+    <button *ngIf="role!='Admin'" class="b2" (click)="openPopup1()"  mat-menu-item>Join Class</button>
+    <button *ngIf="role!='Admin'" class="b2" (click)="openPopup2()"  mat-menu-item>Edit Profile</button>
+    <button class="b2" (click)="openPopup3()"  mat-menu-item>Change Password</button>
+    <button class="b2" (click)="onLogout()"  mat-menu-item>Logout</button>
+</mat-menu>
+
+</span>
+<span style="text-align:center;font-size:30px;float: right;">{{username}}</span>
+</div>
+
+
+
+
+
+<div
+class="modal" style="margin: auto;"
+tabindex="-1"
+role="dialog"
+[ngStyle]="{'display':displayStyle}">
+<div  class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 class="modal-title" >Create Class</h2>
+    </div>
+    <div class="modal-body">
+      <h3><label for="classname">Class Name:</label></h3>
+      <input type="text" id="classname" class="form-control"  name="classname" [(ngModel)]="classname"> <hr>
+     
+      <h3><label>Pick or enter color</label>
+      <ngx-colors ngx-colors-trigger [(ngModel)]="color">
+      </ngx-colors></h3>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" 
+      (click)="createNewClass()">
+     Create Class
+</button>
+      <button type="button" class="btn btn-danger" 
+              (click)="closePopup()">
+        Close
+      </button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div
+class="modal" style="margin: auto;"
+tabindex="-1"
+role="dialog"
+[ngStyle]="{'display':displayStyle1}">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 class="modal-title" >Join Class</h2>
+    </div>
+    <div class="modal-body">
+      <h3><label for="classcode" >Class Code:</label></h3>
+      <input type="text" id="classcode"  [(ngModel)]="classcode" class="form-control"  name="classcode"> 
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" 
+      (click)="joinClass()">
+      Join Class
+     </button>
+      <button type="button" class="btn btn-danger" 
+              (click)="closePopup1()">
+        Close
+      </button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+<div
+class="modal" style="margin: auto;"
+tabindex="-1"
+role="dialog"
+[ngStyle]="{'display':displayStyle2}">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 class="modal-title" >Edit Details</h2>
+    </div>
+    <div class="modal-body">
+      <h3><label for="fname" >First Name:</label></h3>
+      <input type="text" id="fname"  [(ngModel)]="fname" class="form-control"  name="fname"> 
+      <h3><label for="classcode" >Last Name:</label></h3>
+      <input type="text" id="lname"  [(ngModel)]="lname" class="form-control"  name="lname"> 
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" 
+      (click)="saveEdit()">
+      Save
+     </button>
+      <button type="button" class="btn btn-danger" 
+              (click)="closePopup2()">
+        Close
+      </button>
+    </div>
+  </div>
+</div>
+</div>
+
+<div
+class="modal" style="margin: auto;"
+tabindex="-1"
+role="dialog"
+[ngStyle]="{'display':displayStyle3}">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 class="modal-title" >Change Pasword</h2>
+    </div>
+    <div class="modal-body">
+      <h3><label for="classcode" >Password:</label></h3>
+      <input type="text" id="pwd"   class="form-control"  name="pwd"> 
+      <h3><label for="classcode" >Confirm Password:</label></h3>
+      <input type="text" id="cpwd"   class="form-control"  name="cpwd"> 
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" 
+      (click)="joinClass()">
+      Change
+     </button>
+      <button type="button" class="btn btn-danger" 
+              (click)="closePopup3()">
+        Close
+      </button>
+    </div>
+  </div>
+</div>
+</div>

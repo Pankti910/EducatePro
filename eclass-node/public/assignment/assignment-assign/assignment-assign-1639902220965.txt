@@ -1,0 +1,66 @@
+class abc:
+  def show(self,x,y):
+    print("Welcome to Python", x+y)
+obj=abc()
+obj.show(3,4)
+class a:
+  def __init__(self, x,y):
+    print("Welcome to Python", x+y)
+
+obj=a(2,3)
+#Single Inheritance
+class aa:
+  def show(self):
+    print("Show mthod of aa")
+class bb(aa):
+  pass
+obj=bb()
+obj.show()
+#Multi level Inheritance
+class aa:
+  def show(self):
+    print("Show mthod of aa")
+class bb(aa):
+  pass
+class cc(bb):
+  def disp(self):
+    print("disp method of cc")
+obj=cc()
+obj.show()
+obj.disp()
+#Heirarchical Inheritance
+class aa:
+  def show(self):
+    print("Show mthod of aa")
+class bb(aa):
+  pass
+class xx(aa):
+  pass
+class yy(aa):
+  pass
+obj=yy()
+obj.show()
+#Multiple  Inheritance
+class aa:
+  def show(self):
+    print("Show mthod of aa")
+class bb:
+  def disp(self):
+    print("disp method of cc")
+class zz(aa, bb):
+  pass
+obj=zz()
+obj.show()
+obj.disp()
+# Constructor Inheritance
+class a:
+  def __init__(self):
+    print("Class A")
+class c(a):
+  def __init__(self):
+    print("Class C")
+class b(c):
+  def __init__(self):
+    super().__init__()
+
+obj=b()

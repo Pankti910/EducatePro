@@ -1,0 +1,19 @@
+export interface ClassData{
+    _id:String,
+    classname:String,
+    classcode:String,
+    creatorOfclass:String,
+    teachers:[{
+        _id:String,
+        fname:String,
+        lname:String,
+        email:String
+    }],
+    students:[{
+        _id:String,
+        fname:String,
+        lname:String,
+        email:String
+    }],
+    status:String
+}

@@ -1,0 +1,30 @@
+
+<main>    <mat-card>
+    <mat-card-header>
+        
+      <div> {{exam.exam}}</div> 
+      <div style="font-weight: bold;">{{display}}</div> 
+       </mat-card-header>
+</mat-card>
+<br>
+<mat-card >
+    <div *ngFor="let item of exam.queAndans;let i=index">
+        <br>
+        <p>{{item.question}}</p>  <b style="float: right!important;">{{item.marks}}</b>
+        <mat-radio-group  [name]="item._id">
+                 <mat-radio-button (change)="changeAnswer(item._id,'option1',i)" value="option1">{{item.option1}}</mat-radio-button>
+                 <br>
+                 <mat-radio-button (change)="changeAnswer(item._id,'option2',i)" value="option2">{{item.option2}}</mat-radio-button>
+                 <br>
+                 <mat-radio-button (change)="changeAnswer(item._id,'option3',i)" value="option3">{{item.option3}}</mat-radio-button>
+                 <br>
+                 <mat-radio-button (change)="changeAnswer(item._id,'option4',i)" value="option4">{{item.option4}}</mat-radio-button>
+             </mat-radio-group>
+             <br>
+    </div>
+    
+ <mat-action-row>
+     <button mat-raised-button color="primary" (click)="submitExam()">Submit</button>
+ </mat-action-row>    
+ </mat-card>  
+</main>

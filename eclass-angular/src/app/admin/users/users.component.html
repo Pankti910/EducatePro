@@ -1,0 +1,84 @@
+<main-headerbar></main-headerbar>
+<mat-divider></mat-divider>
+<main>
+    
+<div style="border: 1px solid;border-color:black!important;border-radius: 20px;text-align: center;" *ngIf="allow!='Yes'">
+    <h1>405</h1>
+    <h1>Access Denied</h1>
+    <a [routerLink]="" (click)="redirectToPage()">Go back to page</a>
+</div>
+<div *ngIf="allow=='Yes'">
+<mat-tab-group mat-align-tabs="center" [selectedIndex]="0" (selectedTabChange)="tabClick($event)">
+ 
+    <mat-tab label="Users" ></mat-tab>
+    <mat-tab label="Classes" ></mat-tab>
+    
+  </mat-tab-group>
+
+      <div class="header" style="margin-top: 20px!important;">
+         <div style="width: fit-content;float: left;">
+            <mat-card style="width: fit-content;float: left;">
+                <button (click)=" getUsersByStatus('All')" >
+                  All
+                </button>
+                <br>
+
+                <button (click)=" getUsersByStatus('Block')" >
+                   Block
+                </button>
+                <br>
+                <button (click)=" getUsersByStatus('Unblock')" >
+                   Unblock
+                </button>
+
+
+                
+            </mat-card>
+        </div> 
+        <div *ngIf="userStatus=='All'" style="float: right;width:80%">
+            <table style="width:100%;" [cellSpacing]=0>
+                <tr style="height:20px;">
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                </tr>
+                <tr *ngFor="let item of users">
+                <td>{{item.fname}}</td>
+                <td>{{item.lname}}</td>
+                <td>{{item.email}}</td>
+                <td>
+                    <button style="color: blue;" *ngIf="item.status=='Unblock'" (click)="changeStatusOfUser(item._id,item)" >{{item.status}}</button>
+                    <button style="color: red;" *ngIf="item.status!='Unblock'" (click)="changeStatusOfUser(item._id,item)" >{{item.status}}</button>
+            
+                 </td>
+                </tr>
+            </table>
+           
+        </div>
+        <div *ngIf="userStatus!='All'" style="float: right;width:80%">
+            <table style="width:100%;" [cellSpacing]=0>
+                <tr style="height:20px;">
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                </tr>
+                <tr *ngFor="let item of users">
+                <td *ngIf="userStatus==item.status">{{item.fname}}</td>
+                <td *ngIf="userStatus==item.status">{{item.lname}}</td>
+                <td *ngIf="userStatus==item.status">{{item.email}}</td>
+                <td>
+                    <button *ngIf="userStatus==item.status && item.status=='Unblock'" style="color: blue;"(click)="changeStatusOfUser(item._id,item)" >{{item.status}}</button>
+                    <button *ngIf="userStatus==item.status && item.status!='Unblock'" style="color: red;"  (click)="changeStatusOfUser(item._id,item)" >{{item.status}}</button>
+            
+                 </td>
+                </tr>
+            </table>
+           
+        </div>
+
+        </div>
+    </div>
+    
+</main>

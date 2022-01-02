@@ -1,0 +1,40 @@
+
+ 
+
+<div style="border: 1px solid;border-color:black!important;border-radius: 20px;text-align: center;" *ngIf="allow!='Yes'">
+    <h1>405</h1>
+    <h1>Access Denied</h1>
+    <a [routerLink]="" (click)="redirectToPage()">Go back to page</a>
+</div>
+
+
+<div *ngIf="allow=='Yes'">
+    <div>
+        <main-headerbar></main-headerbar>
+    </div>
+    <mat-divider></mat-divider>
+    <mat-grid-list cols="3" rowHeight="2:1.0">
+        <mat-grid-tile  colspan="1" *ngFor='let data of classList.joinedClasses'>
+           <mat-card *ngIf="data.status=='Unblock'"  style="width:80%;height:50%;color: white;" [ngStyle]="{'background-color':data.classcolor}">
+            <a [routerLink]="['/inside-class',data._id]" style="color: white;">{{data.classname}}
+           
+
+            </a>
+
+
+
+            <button [matMenuTriggerFor]="menu" class="b1" style="float: right;"><mat-icon style="color: white;float:right!important">more_vert</mat-icon></button>
+  <mat-menu #menu="matMenu" >
+      <button class="b2" (click)="leaveClass(data._id)"  mat-menu-item>Leave Class</button>
+  </mat-menu>
+
+            </mat-card>
+            <mat-card *ngIf="data.status=='Block'"  style="width:80%;height:50%;color: white;background-color: grey;pointer-events: none;" >
+                <a aria-disabled="true">{{data.classname}}
+                </a>
+                </mat-card>
+        
+        </mat-grid-tile>
+    </mat-grid-list>
+    
+</div>

@@ -1,0 +1,20 @@
+<main>
+<table style="width:100%;border: 1;">
+    <tr>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Total Marks</th>
+        <th>Get Marks</th>
+    </tr>
+<tr *ngFor="let i of examData">
+<td>{{i.userid.fname}}  {{i.userid.lname}}</td>
+<td>{{i.userid.email}}</td>
+<td>{{i.totalMarks}}</td>
+<td>{{i.getMarks}}</td>
+</tr>
+</table>
+<br>
+<br>
+<button style="margin-left: 20px;" (click)="backToExamList()" mat-raised-button color="accent">Back To Exam List</button>  
+
+</main>

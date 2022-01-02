@@ -1,0 +1,105 @@
+<main>
+<mat-form-field>
+  <mat-label>Exam</mat-label>
+  <input name="exam" [value]="exam" type="text" [(ngModel)]="exam" matInput>
+
+</mat-form-field>
+<b style="color: green;float: right;">Total Marks:{{totalMarks}}</b>
+<mat-card style="height: auto;">
+  
+ 
+  <form>
+
+        <mat-card-content style="height: auto;">
+
+            <mat-form-field appearance="outline" style="width:100%;">
+            <textarea [value]="question" autocomplete="off" style="resize: none;" placeholder="Question to add" matInput
+            name="content" [(ngModel)]="question"></textarea>
+        
+        </mat-form-field>
+        
+            <mat-form-field style="float:left;width: 45%;display: flexbox;">
+                <mat-label>Option 1</mat-label>
+                <input name="option1" [value]="option1" type="text" [(ngModel)]="option1" matInput>
+              </mat-form-field>
+        
+
+            <mat-form-field style="float:right;width: 45%;">
+                <mat-label>Option 2</mat-label>
+                <input name="option2"  [value]="option2"  type="text" [(ngModel)]="option2" matInput>
+              </mat-form-field>
+              <mat-form-field style="float:left;width:45%;">
+                <mat-label>Option 3</mat-label>
+                <input name="option3"  [value]="option3" type="text" [(ngModel)]="option3" matInput>
+              </mat-form-field>
+              <mat-form-field style="float:right;width: 45%;">
+                <mat-label>Option 4</mat-label>
+                <input name="option4"  [value]="option4" type="text" [(ngModel)]="option4" matInput>
+              </mat-form-field>
+              
+              
+              
+              <mat-form-field style="float:left;width:44%;">
+                <mat-label>Correct Answer</mat-label>
+                <mat-select  name="correctAnswer"  [(ngModel)]="correctAnswer">
+                  <mat-option *ngFor="let data of options" [value]="data.value">
+                    {{data.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field style="float: right;width:44%;">
+                <mat-label>Marks</mat-label>
+                <input style="display:flex!important;" name="marks" [value]="marks"  type="text"  [(ngModel)]="marks" matInput>
+              </mat-form-field>
+             
+             
+
+        </mat-card-content>
+      
+
+<mat-card-footer style="margin-top:160px;">
+      
+  
+  <button (click)="onQuestionAdd()" *ngIf="operation=='add'" style="margin-bottom:13px;width:44%;float:left;margin-left:1vw;margin-bottom:2vh;" mat-raised-button color="primary"  >Add Question</button>
+  <button *ngIf="operation=='add'"  mat-raised-button style="margin-bottom:13px;width:44%;margin-left:8vw;"  mat-raised-button >Discard</button>
+
+        <button (click)="onUpdate()" *ngIf="operation=='edit'" style="margin-bottom:13px;width:44%;float:left;margin-left:1vw;margin-bottom:2vh;" mat-raised-button color="primary"  >Save Changes</button>
+        <button (click)="onDiscardUpdate()" *ngIf="operation=='edit'"  mat-raised-button style="margin-bottom:13px;width:44%;margin-left:8vw;"  mat-raised-button >Discard Changes</button>
+       
+</mat-card-footer>
+              
+</form>
+
+</mat-card>
+<br><br>
+<div style="margin-left:400px;">
+  <button (click)="onExamAssign()" mat-raised-button color="accent">Assign Exam</button>  
+  <button style="margin-left: 20px;" (click)="backToExamList()" mat-raised-button color="accent">Back To Exam List</button>  
+  
+</div>
+
+<br><br>
+
+<div *ngIf="questions.length>0" >
+  <mat-card *ngFor="let item of questions;let i=index">
+    <dl>
+      <dt>{{item.question}}
+        <span style="color: green;float:right;">Mark:{{item.marks}}</span>
+          
+          
+       
+      </dt>
+      <dd [ngStyle]="{'background-color':item.correctAnswer==='option1'?'#6fdc6f':'none'}">Option1:{{item.option1}}</dd>
+      <dd [ngStyle]="{'background-color':item.correctAnswer==='option2'?'#6fdc6f':'none'}">Option2:{{item.option2}}</dd>
+      <dd [ngStyle]="{'background-color':item.correctAnswer==='option3'?'#6fdc6f':'none'}">Option3:{{item.option3}}</dd>
+      <dd [ngStyle]="{'background-color':item.correctAnswer==='option4'?'#6fdc6f':'none'}">Option4:{{item.option4}}</dd>
+      <dd style="margin-bottom:13px;font-weight: bold;">
+        <a (click)="editQuestion(item,i)" style="color: green;float: left;">Edit</a>
+        <a  (click)="removeQuestion(item,i)"  style="color: red;float:right;">Delete</a>
+      </dd>
+    </dl>
+     
+   
+  </mat-card>
+</div>
+</main>

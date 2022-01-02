@@ -1,0 +1,55 @@
+::ng-deep main{
+    margin-top: 2rem!important;
+    width: 80%;
+    margin: 1rem auto;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    font-family: 'Roboto',Helvetica,Arial,sans-serif;
+
+}
+::ng-deep .mat-toolbar{
+    text-align: center;
+    justify-content: center;
+    justify-self:center;
+}
+.center {
+    margin: auto;
+  }
+
+  
+.header {
+    display: inline-block; 
+    width: 100%;
+  }
+  input[type=file]{
+    visibility: hidden;
+}
+
+
+::ng-deep .matInput{
+  width:20%;
+  float: right;
+}
+table{
+  width: 100%;
+  font-size: large;
+  float: right;
+}
+::ng-deep th{
+  background-color: #155724;
+  color: white;
+  border: none;
+  height: 40px;
+  text-align: center;    
+}
+td{
+text-align: center;
+}
+.mat-icon {
+  background-repeat: no-repeat;
+  display: inline-block;
+  fill: currentColor;
+  height: 24px;
+  width: 24px;
+  }

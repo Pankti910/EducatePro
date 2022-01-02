@@ -1,0 +1,45 @@
+<div id="registartion">
+    <h3 class="text-center text-white pt-5">Registration form</h3>
+    <div class="container">
+        <div id="registartion-row" class="row justify-content-center align-items-center">
+            <div id="registartion-column" class="col-md-6">
+                <div id="registartion-box" class="col-md-12">
+                    <form id="registartion-form" class="form" action="" method="post">
+                        <h3 class="text-center text-info">Registration</h3>
+                        <div class="form-group">
+                            <label for="fname" class="text-info">First Name:</label><br>
+                            <input [(ngModel)]="fname" type="text" name="username" id="fname" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lname" class="text-info">Last Name:</label><br>
+                            <input [(ngModel)]="lname" type="text" name="lname" id="fname" class="form-control">
+                        </div><div class="form-group">
+                            <label for="fname" class="text-info">Email:</label><br>
+                            <input [(ngModel)]="email" type="text" name="email" id="email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="text-info">Password:</label><br>
+                            <input [(ngModel)]="password" type="password" name="password" id="password" class="form-control">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="confirm_password" class="text-info">Confirm Password:</label><br>
+                            <input  type="password" name="confirm_password" id="confirm_password" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            
+                        </div>
+                        <div id="action_div">
+                            <button class="btn btn-info btn-md" type="submit" (click)="onRegistration()">Register</button>
+
+                            <a  style="float:right;" href="/login" class="text-info">Login here</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

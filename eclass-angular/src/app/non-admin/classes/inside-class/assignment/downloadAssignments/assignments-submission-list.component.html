@@ -1,0 +1,37 @@
+<main>
+    
+
+    <div class="grid-container">
+        <div *ngFor="let t of classData.students">
+      
+            <div>
+                
+                <div  style=" width: 200px;
+                border: 1px solid green;
+                padding: 50px;
+                margin: 20px;margin-bottom: 0px;">
+                    
+                
+                {{t.fname}} {{t.lname}}
+                </div>
+        
+        
+                <div style=" width: 200px;
+                border: 1px solid green;
+                
+                margin-right: 20px;margin-left:20px ;" *ngIf="submittedData.indexOf(t._id)==-1">
+                 <button style="width:100%;"class="btn btn-danger" disabled> Remanning </button> 
+                </div>
+        
+               <div style=" width: 200px;
+                border: 1px solid green;
+                
+                margin-right: 20px;margin-left:20px ;" *ngIf="submittedData.indexOf(t._id)>-1">
+                 <button style="width:100%;"class="btn btn-primary" (click)="downloadAssignment(t._id)"> Download </button> 
+                </div>
+                
+            </div></div>
+      </div>
+      <button style="margin-left: 20px;" (click)="backToAssignmentList()" mat-raised-button color="accent">Back To Assignment List</button>  
+
+</main>

@@ -1,0 +1,70 @@
+::ng-deep main{
+    margin-top: 2rem!important;
+    width: 100%;
+    margin: 1rem auto;
+    font-size: 1rem;
+    
+    font-family: 'Roboto',Helvetica,Arial,sans-serif;
+
+}
+::ng-deep .mat-toolbar{
+    text-align: center;
+    justify-content: center;
+    justify-self:center;
+}
+.center {
+    margin: auto;
+  }
+
+  
+.header {
+    display: inline-block; 
+    width: 100%;
+  }
+  input[type=file]{
+    visibility: hidden;
+}
+
+
+::ng-deep .matInput{
+  width:20%;
+  float: right;
+}
+table{
+  width: 100%;
+  font-size: large;
+  float: right;
+}
+::ng-deep th{
+  background-color: #155724;
+  color: white;
+  border: none;
+  height: 40px;
+  text-align: center;    
+}
+td{
+text-align: center;
+}
+.mat-icon {
+  background-repeat: no-repeat;
+  display: inline-block;
+  fill: currentColor;
+  height: 24px;
+  width: 24px;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-areas:
+      'header header header header header header'
+      'menu main main main right right'
+      'menu footer footer footer footer footer';
+    grid-gap: 5px;
+    padding: 5px;
+  }
+  .grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 1px 0;
+    font-size: 30px;
+  }

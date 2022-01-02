@@ -1,0 +1,19 @@
+::ng-deep body {
+  margin: 0;
+  padding: 0;
+  height:auto;
+}
+#registartion .container #registartion-row #registartion-column #registartion-box {
+ 
+  max-width: 600px;
+  height:auto;
+  border: 1px solid #9C9C9C;
+  background-color: #EAEAEA;
+}
+#registartion .container #registartion-row #registartion-column #registartion-box #registartion-form {
+  padding: 20px;
+}
+
+#action_div{
+  margin-top: auto;
+}

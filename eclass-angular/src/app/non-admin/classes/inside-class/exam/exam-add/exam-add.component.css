@@ -1,0 +1,73 @@
+::ng-deep main{
+    margin-top: 2rem!important;
+    width: 80%;
+    margin: 1rem auto;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    font-family: 'Roboto',Helvetica,Arial,sans-serif;
+
+}
+
+
+textarea{
+    width: 100%;  
+ }
+ textarea{
+     resize: none;
+     overflow:auto;
+ }
+
+ ::ng-deep .matInput{
+     width:20%;
+ }
+
+ ::ng-deep .form-field-wrapper{
+    margin-bottom: -1.25em;
+ }
+
+ ::ng-deep .mat-form-field{
+     line-height: 1.1;
+ }
+ ::ng-deep .mat-form-field-infix{
+     border-top:0;
+ }
+
+ ::ng-deep form{
+     padding-bottom:auto;
+ }
+ ::ng-deep .mat-card{
+     height:max-content;
+ }
+ ::ng-deep .mat-button .mat-button-wrapper {
+     vertical-align: top;
+ }
+
+ ::ng-deep .mat-select{
+     display:none;
+ }
+
+ ::ng-deep main{
+    margin-top: 2rem!important;
+    width: 80%;
+    margin: 1rem auto;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    font-family: 'Roboto',Helvetica,Arial,sans-serif;
+
+}
+::ng-deep .mat-toolbar{
+    text-align: center;
+    justify-content: center;
+    justify-self:center;
+}
+.center {
+    margin: auto;
+  }
+
+  
+.header {
+    display: inline-block; 
+    width: 100%;
+  }

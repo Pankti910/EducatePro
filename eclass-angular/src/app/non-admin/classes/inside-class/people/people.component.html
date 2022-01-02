@@ -1,0 +1,112 @@
+
+<main-headerbar></main-headerbar>
+<mat-divider></mat-divider>
+
+
+<div style="display: flex;width:100%">
+
+    <div style="width:15%;margin-top:50px;">
+      <h4><b><mat-toolbar-row> Enrolled In</mat-toolbar-row> </b></h4> 
+       <span *ngFor='let data of classList.joinedClasses'>
+         <mat-toolbar-row class="mat-toolbar-row-link">
+        <a  [routerLink]="['/people',data._id]">{{data.classname}}
+               
+    
+        </a>
+      </mat-toolbar-row>
+     
+       </span>
+    </div>
+    <div style="width:85%;float: right;">
+    <div style="float:right;width: 100%;">  
+  <main>
+
+    
+
+    
+            <mat-tab-group mat-align-tabs="center" style="margin-bottom:2vh;" [selectedIndex]="3" (selectedTabChange)="tabClick($event)">
+                
+                <mat-tab label="Post">
+                </mat-tab> 
+                <mat-tab label="Assignment">
+                  
+                </mat-tab>
+                <mat-tab label="Exam">
+                 
+                </mat-tab>
+                <mat-tab label="People">
+        
+                  <mat-toolbar class="center" style="height:100px;background-color: blue;color: white;font-weight: bold;font-size:25px;">
+                    {{classData.classname}}
+                </mat-toolbar>
+        
+                <div *ngIf="classData.status!=='Block'" style="float: right;width:80%;margin-top:20px">
+                    <p style="color: green;font-size:2vw;">Teachers</p>
+                    <mat-divider style="color: green;border-color: green;border-width:2px;"></mat-divider>
+                    <table style="width:100%;">
+                       <tr *ngFor="let t of classData.teachers">
+                         <td>{{t.fname}}</td>
+                         <td>{{t.lname}}</td>
+                         <td>{{t.email}}</td>
+                         
+                       </tr>
+                    </table>
+            
+                    <br>
+                    <br>
+            
+                    <p >
+                        <span style="color: green;font-size:2vw;">Students</span>
+                        <span style="float: right;">{{classData.students.length}} students</span>
+                    </p>
+                    <mat-divider style="color: green;border-color: green;border-width:2px;"></mat-divider>
+                   
+                    <table style="width:100%">
+                       <tr *ngFor="let t of classData.students">
+                         <td>{{t.fname}}</td>
+                         <td>{{t.lname}}</td>
+                         <td>{{t.email}}</td>
+                        
+                       </tr>
+                    </table>
+              
+                  </div>
+                <div *ngIf="message.message=='Teacher'" class="header" style="margin-top: 20px!important;float: left;width:20%;">
+                    <div style="width: fit-content;float: left;">
+                       <mat-card style="width: fit-content;float: left;">
+                        Class Code:{{classData.classcode}}
+                     
+                      <a  [cdkCopyToClipboard]="value"><mat-icon>content_copy</mat-icon>
+                      </a>
+                       </mat-card>
+                       
+                   </div> 
+                </div>
+                <div  style="margin-top:20vh!important;">
+                    <div style="float: left;">
+                        <mat-card style="width: fit-content;float: left;">
+                      
+                       <a  href={{meetLink}} target="_blank" rel="noopener noreferrer">Join Meeting
+                       </a>
+                        </mat-card>
+                        
+                    </div>
+                </div>
+              </mat-tab>
+              
+            </mat-tab-group>
+                
+        
+                
+             
+        </main>
+      
+        
+
+        
+     
+
+
+</div>
+</div>
+</div>
